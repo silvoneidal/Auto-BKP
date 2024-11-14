@@ -1,4 +1,4 @@
-('H:\\Eletronica\\Projetos\\Projetos_Python\\auto_backup\\build\\main\\PYZ-00.pyz',
+('H:\\Eletronica\\Projetos\\Projetos_Python\\Auto-BKP\\Firmware_v1.0.0\\build\\main\\PYZ-00.pyz',
  [('PIL',
    'C:\\Users\\Usuario\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\__init__.py',
    'PYMODULE'),

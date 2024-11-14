@@ -54,7 +54,7 @@ def auto_backup():
     try:
         observer.start()
         print(f'Monitorando alterações em: {source_folder}')
-        icon.run()
+        icon.run() # Inicia o icone pystray
         while running:
             time.sleep(1)  # Mantém o programa rodando
         sys.exit() # Fecha o aplicativo de auto-backup
@@ -162,6 +162,7 @@ class BackupHandler(FileSystemEventHandler):
             print(f'Diretório não encontrado no backup para renomear: {old_backup_path}')
             
     def sync_initial(self):
+        inicio = time.time()
         print("Iniciando backup total, isso poderá demorar um pouco, aguarde...")
         # Sincroniza a pasta de origem com o backup no início
         for root, dirs, files in os.walk(self.source_folder):
@@ -178,7 +179,10 @@ class BackupHandler(FileSystemEventHandler):
                 if not os.path.exists(backup_file):
                     shutil.copy2(source_file, backup_file)
                     print(f'Arquivo sincronizado (inicial): {source_file} -> {backup_file}')
-        print("Backup total finalizado com sucesso, iniciando o monitoramento de backup.../n")
+        fim = time.time()
+        tempo = fim -inicio
+        print("Tempo de backup: ", tempo/60, "minutos")
+        print("Backup total finalizado com sucesso, iniciando o monitoramento de backup...\n")        
         
 # Funções referente ao icone stray
 def open_backup(icon):
