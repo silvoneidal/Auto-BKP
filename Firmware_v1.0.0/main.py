@@ -163,7 +163,7 @@ class BackupHandler(FileSystemEventHandler):
             
     def sync_initial(self):
         inicio = time.time()
-        print("Iniciando backup total, isso poderá demorar um pouco, aguarde...")
+        print("Iniciando backup completo, isso poderá demorar um pouco, aguarde...")
         # Sincroniza a pasta de origem com o backup no início
         for root, dirs, files in os.walk(self.source_folder):
             for dir in dirs:
@@ -182,7 +182,7 @@ class BackupHandler(FileSystemEventHandler):
         fim = time.time()
         tempo = fim -inicio
         print("Tempo de backup: ", tempo/60, "minutos")
-        print("Backup total finalizado com sucesso, iniciando o monitoramento de backup...\n")        
+        print("Backup completo finalizado com sucesso, iniciando o monitoramento de backup...\n")        
         
 # Funções referente ao icone stray
 def open_backup(icon):
@@ -221,7 +221,7 @@ def main():
         print("1. Alterar endereço de origem")
         print("2. Alterar endereço de backup")
         print("3. Iniciar monitoramento de backup")
-        print("4. Iniciar backup total + monitoramento de backup")
+        print("4. Iniciar backup completo + monitoramento de backup")
         opcao = input("\nDigite uma opção: ")
 
         # Tratamento da opção selecionada
